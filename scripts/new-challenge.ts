@@ -44,7 +44,7 @@ async function loadPuzzleData() {
 
   try {
     const response = await fetch(
-      `https://adventofcode.com/2022/day/${nextDay}/input`,
+      `https://adventofcode.com/2023/day/${nextDay}/input`,
       {
         headers: { cookie: `session=${process.env.session}` },
       }
