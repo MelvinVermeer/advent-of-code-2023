@@ -17,12 +17,22 @@ describe("01 - Trebuchet", () => {
   });
 
   describe("Part 2", () => {
+    const sample2 = [
+      "two1nine",
+      "eightwothree",
+      "abcone2threexyz",
+      "xtwone3four",
+      "4nineeightseven2",
+      "zoneight234",
+      "7pqrstsixteen",
+    ];
+
     it("Sample", () => {
-      expect(part2(sample)).toEqual(sample);
+      expect(part2(sample2)).toEqual(281);
     });
 
-    xit("Answer", () => {
-      expect(part2(data)).toEqual(data);
+    it("Answer", () => {
+      expect(part2(data)).toEqual(54518);
     });
   });
 });
