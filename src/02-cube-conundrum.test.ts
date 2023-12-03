@@ -1,5 +1,4 @@
-import { part1 } from "./02-cube-conundrum";
-import { part2 } from "./part2";
+import { part1, part2 } from "./02-cube-conundrum";
 import { readFileSync } from "fs";
 
 const data = readFileSync("src/data/02", "utf8").split("\n");
