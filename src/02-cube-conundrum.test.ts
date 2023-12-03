@@ -1,4 +1,5 @@
-import { part1, part2 } from "./02-cube-conundrum";
+import { part1 } from "./02-cube-conundrum";
+import { part2 } from "./part2";
 import { readFileSync } from "fs";
 
 const data = readFileSync("src/data/02", "utf8").split("\n");
@@ -24,11 +25,11 @@ describe("02 - Cube Conundrum", () => {
 
   describe("Part 2", () => {
     it("Sample", () => {
-      expect(part2(sample)).toEqual(sample);
+      expect(part2(sample)).toEqual(2286);
     });
 
-    xit("Answer", () => {
-      expect(part2(data)).toEqual(data);
+    it("Answer", () => {
+      expect(part2(data)).toEqual(87984);
     });
   });
 });
