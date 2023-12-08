@@ -19,7 +19,7 @@ describe("03 - Gear Ratios", () => {
 
   describe("Part 1", () => {
     it("Sample", () => {
-      expect(part1(sample)).toEqual(0);
+      expect(part1(sample)).toEqual(4361);
     });
 
     xit("Answer", () => {
