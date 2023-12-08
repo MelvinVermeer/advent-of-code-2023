@@ -25,11 +25,12 @@ describe("04 - Scratchcards", () => {
 
   describe("Part 2", () => {
     it("Sample", () => {
-      expect(part2(sample)).toEqual(sample);
+      expect(part2(sample)).toEqual(30);
     });
 
-    xit("Answer", () => {
-      expect(part2(data)).toEqual(data);
+    it("Answer", () => {
+      // 279241 is too low
+      expect(part2(data)).not.toEqual(279241);
     });
   });
 });
