@@ -22,8 +22,8 @@ describe("03 - Gear Ratios", () => {
       expect(part1(sample)).toEqual(4361);
     });
 
-    xit("Answer", () => {
-      expect(part1(data)).toEqual(data);
+    it("Answer", () => {
+      expect(part1(data)).toEqual(527446);
     });
   });
 

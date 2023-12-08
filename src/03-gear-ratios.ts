@@ -1,9 +1,5 @@
 import { sum } from "./shared/math";
 
-const isSymbol = (s: string): boolean => {
-  return s !== "." && isNaN(parseInt(s));
-};
-
 const hasNeighboringSymbol = (g: string[][], r: number, c: number): boolean => {
   for (let rr of [-1, 0, 1]) {
     for (let cc of [-1, 0, 1]) {
@@ -24,42 +20,32 @@ const hasNeighboringSymbol = (g: string[][], r: number, c: number): boolean => {
 };
 
 export const part1 = (data: string[]): number => {
-  const g = data.map((row) => row.split(""));
+  // sneakyly add ad . at the end of the line to prevent wrapping
+  const g = data.map((row) => (row + ".").split(""));
 
-  // console.log(g);
-
-  const nonPartNumbers: number[] = [];
+  const partNumbers: number[] = [];
   let numberUnderInspection: string = "";
-  let continueInspection = true;
+  let isPart = true;
 
   for (let r = 0; r < g.length; r++) {
     for (let c = 0; c < g[r].length; c++) {
       const element = parseInt(g[r][c]);
 
       if (isNaN(element)) {
-        if (numberUnderInspection.length > 0) {
-          nonPartNumbers.push(parseInt(numberUnderInspection));
+        if (numberUnderInspection.length > 0 && isPart) {
+          partNumbers.push(parseInt(numberUnderInspection));
         }
-
+        isPart = false;
         numberUnderInspection = "";
-        continueInspection = true;
       } else {
-        // console.log("numberUnderInspection", numberUnderInspection);
-        if (continueInspection) {
-          console.log("continueInspection", g[r][c]);
-          numberUnderInspection += g[r][c];
+        if (isPart || hasNeighboringSymbol(g, r, c)) {
+          isPart = true;
         }
-        if (hasNeighboringSymbol(g, r, c)) {
-          numberUnderInspection = "";
-          continueInspection = false;
-        }
+        numberUnderInspection += g[r][c];
       }
-
-      // numbers dont wrap top a new line
     }
   }
-  console.log(nonPartNumbers);
-  return nonPartNumbers.reduce(sum, 0);
+  return partNumbers.reduce(sum, 0);
 };
 
 export const part2 = (data: any): any => {
