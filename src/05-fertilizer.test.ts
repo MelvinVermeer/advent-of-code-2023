@@ -44,17 +44,17 @@ humidity-to-location map:
     });
 
     it("Answer", () => {
-      expect(part1(data)).toEqual(0);
+      expect(part1(data)).toEqual(910845529);
     });
   });
 
   describe("Part 2", () => {
     it("Sample", () => {
-      expect(part2(sample)).toEqual(sample);
+      expect(part2(sample)).toEqual(46);
     });
 
-    xit("Answer", () => {
-      expect(part2(data)).toEqual(data);
+    it("Answer", () => {
+      expect(part2(data)).toEqual(0);
     });
   });
 });
