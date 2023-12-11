@@ -24,12 +24,25 @@ describe("08 - Haunted Wasteland", () => {
     "ZZZ = (ZZZ, ZZZ)",
   ];
 
+  const sample3 = [
+    "LR",
+    "",
+    "11A = (11B, XXX)",
+    "11B = (XXX, 11Z)",
+    "11Z = (11B, XXX)",
+    "22A = (22B, XXX)",
+    "22B = (22C, 22C)",
+    "22C = (22Z, 22Z)",
+    "22Z = (22B, 22B)",
+    "XXX = (XXX, XXX)",
+  ];
+
   describe("Part 1", () => {
     it("Sample", () => {
       expect(part1(sample)).toEqual(2);
     });
 
-    it("Sample", () => {
+    it("Sample2", () => {
       expect(part1(sample2)).toEqual(6);
     });
 
@@ -39,12 +52,12 @@ describe("08 - Haunted Wasteland", () => {
   });
 
   describe("Part 2", () => {
-    it("Sample", () => {
-      expect(part2(sample)).toEqual(sample);
+    it("Sample3", () => {
+      expect(part2(sample3)).toEqual(6);
     });
 
-    xit("Answer", () => {
-      expect(part2(data)).toEqual(data);
+    it("Answer", () => {
+      expect(part2(data)).toEqual(9177460370549);
     });
   });
 });
