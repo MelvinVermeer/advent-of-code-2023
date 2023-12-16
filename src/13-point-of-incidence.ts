@@ -40,20 +40,50 @@ const scoreRows = (rows: string[]): number => {
 };
 
 const scorePattern = (pattern: string): number => {
-  // horizontal reflection - number of rows above the line of reflection.
   const rows = pattern.split("\n");
 
+  // horizontal reflection - number of rows above the line of reflection.
   // vertical reflection - number of columns to the left of the line of reflection.
   return 100 * scoreRows(rows) || scoreRows(rotate(rows));
 };
 
+const unsmudge = (pattern: string, changeAt: number): string => {
+  let newPattern = pattern.split("\n");
+  newPattern[changeAt] = pattern[changeAt] === "#" ? "." : "#";
+  return newPattern.join("");
+};
+
+const scorePattern2 = (pattern: string): number => {
+  const rows = pattern.split("\n");
+  const score = 100 * scoreRows(rows) || scoreRows(rotate(rows));
+
+  let newScore = score;
+  let changeAt = 0;
+  // try alternating the pattern
+  while (newScore === score) {
+    const newRows = unsmudge(pattern, changeAt).split("\n");
+    newScore = 100 * scoreRows(newRows) || scoreRows(rotate(newRows));
+    changeAt++;
+  }
+
+  //  NOT YET WORKING
+  console.log({
+    score,
+    newScore,
+    changeAt,
+  });
+
+  return newScore;
+};
+
 export const part1 = (data: string): number => {
   const patterns = data.split("\n\n");
-
   const scores = patterns.map(scorePattern);
   return scores.reduce(sum);
 };
 
 export const part2 = (data: any): any => {
-  return data;
+  const patterns = data.split("\n\n");
+  const scores = patterns.map(scorePattern2);
+  return scores.reduce(sum);
 };

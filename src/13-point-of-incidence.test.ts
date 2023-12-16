@@ -32,11 +32,11 @@ describe("13 - Point of Incidence", () => {
 
   describe("Part 2", () => {
     it("Sample", () => {
-      expect(part2(sample)).toEqual(sample);
+      expect(part2(sample)).toEqual(400);
     });
 
     xit("Answer", () => {
-      expect(part2(data)).toEqual(data);
+      expect(part2(data)).toEqual(0);
     });
   });
 });
