@@ -27,6 +27,19 @@ export const part1 = (data: string[]): number => {
     .reduce(product);
 };
 
-export const part2 = (data: any): any => {
-  return data;
+export const part2 = (data: string[]): number => {
+  const times = data[0]
+    .replaceAll(" ", "")
+    .split(":")
+    .map(Number)
+    .filter(Boolean);
+
+  return data[1]
+    .replaceAll(" ", "")
+    .split(":")
+    .map(Number)
+    .filter(Boolean)
+    .map((d, i) => [times[i], d])
+    .map(([t, d]) => countWaysToWin(t, d))
+    .reduce(product);
 };
