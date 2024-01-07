@@ -18,11 +18,14 @@ describe("15 - Lens Library", () => {
 
   describe("Part 2", () => {
     it("Sample", () => {
-      expect(part2(sample)).toEqual(sample);
+      expect(part2(sample)).toEqual(145);
     });
 
-    xit("Answer", () => {
-      expect(part2(data)).toEqual(data);
+    it("Answer", () => {
+      const result = part2(data);
+      expect(result).toBeGreaterThan(178865); // too low
+      expect(result).toBeLessThan(322298); // too low
+      console.log(result);
     });
   });
 });
