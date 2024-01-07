@@ -1,18 +1,18 @@
 import { part1, part2 } from "./15-lens-library";
 import { readFileSync } from "fs";
 
-const data = readFileSync("src/data/15", "utf8").split("\n");
+const data = readFileSync("src/data/15", "utf8");
 
 describe("15 - Lens Library", () => {
-  const sample = [""];
+  const sample = "rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7";
 
   describe("Part 1", () => {
     it("Sample", () => {
-      expect(part1(sample)).toEqual(sample);
+      expect(part1(sample)).toEqual(1320);
     });
 
-    xit("Answer", () => {
-      expect(part1(data)).toEqual(data);
+    it("Answer", () => {
+      expect(part1(data)).toEqual(522547);
     });
   });
 
